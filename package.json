@@ -1,0 +1,32 @@
+{
+  "name": "ciklumtest",
+  "version": "1.0.0",
+  "description": "NodeJs code test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ziere/CiklumTest.git"
+  },
+  "keywords": [
+    "Git",
+    "NodeJS",
+    "Ciklum",
+    "Github"
+  ],
+  "author": "Francisco Moreno Arcas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ziere/CiklumTest/issues"
+  },
+  "homepage": "https://github.com/Ziere/CiklumTest#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "github-api": "^3.0.0",
+    "mocha": "^3.3.0",
+    "request": "^2.81.0"
+  }
+}
