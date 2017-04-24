@@ -32,6 +32,9 @@ const getMaxUsedRepo = ((gh,username) => {
           }
         }
       });
+      if ((mostUsedLanguage) === undefined) {
+        reject('The user have repositorie/s but without any language');
+      };
       resolve(mostUsedLanguage);
     }).catch((error) => 
     {
