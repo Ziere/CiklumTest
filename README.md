@@ -14,3 +14,5 @@ To run the program you have two choices:
 1. Using command line `npm start user=<user>` that will show the most used language of the <user> ignoring the repositories without any language and the number of ocurrencies.
 
 2. Using the command `npm start` will be showed and interactive prompt asking you to put a name for the query.
+
+Note: if you don´t know where to find a token https://github.com/settings/tokens

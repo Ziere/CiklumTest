@@ -1,10 +1,10 @@
-/*
+/**
  * This function return a dictionary with key: value with the most used
- * language/languages
+ * language/languages and the occurence of that repository
  * 
- * param {object} gh, Github object, dependency injected
- * param {string} username,  String with the username
- * return {object} 
+ * @param {Object} gh, Github object, dependency injected
+ * @param {String} username,  String with the username
+ * @return {Object} 
  */
 const getMaxUsedRepo = ((gh,username) => {
   return new Promise((resolve, reject) => {
@@ -38,6 +38,7 @@ const getMaxUsedRepo = ((gh,username) => {
       resolve(mostUsedLanguage);
     }).catch((error) => 
     {
+      console.log(error)
       reject('The introduced user doesn´t exist in Github');
     });
   });  

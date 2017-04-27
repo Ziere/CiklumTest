@@ -3,7 +3,7 @@
 const GitHub = require('github-api');
 const readline = require('readline');
 const getMaxUsedRepo = require('./getMaxUsedRepo');
-const regex = /^user=(.*)/;
+const processCommandLine = require('./processCommandLine');
 
 if (!process.env.token) {
   console.log('Please setup your own token to use Github in $token env var');
@@ -18,12 +18,8 @@ let gh = new GitHub({
 // allowing username via command line
 let username;
 
-process.argv.forEach(function(element) {  
-  let result = regex.test(element);
-  if (result) {
-    username = element.match(regex)[1];
-  }
-});
+// set the username if it come from the command line
+username = processCommandLine(process.argv);
 
 // is username exist means the username was introduced via command line
 if (username) {
