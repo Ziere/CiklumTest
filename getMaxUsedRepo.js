@@ -6,7 +6,15 @@
  * @param {String} username,  String with the username
  * @return {Object} 
  */
-const getMaxUsedRepo = ((gh,username) => {
+
+const GitHub = require('github-api');
+
+// basic auth
+let gh = new GitHub({
+  token: process.env.token
+});
+
+const getMaxUsedRepo = ((username) => {
   return new Promise((resolve, reject) => {
     let user = gh.getUser(username);
     user.listRepos((err, repos) => {
@@ -39,7 +47,7 @@ const getMaxUsedRepo = ((gh,username) => {
     }).catch((error) => 
     {
       console.log(error)
-      reject('The introduced user doesn´t exist in Github');
+      reject('The introduced user doesn´t exist in Github or the token is not valid');
     });
   });  
 });

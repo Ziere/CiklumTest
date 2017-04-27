@@ -1,6 +1,5 @@
 'use strict'
 
-const GitHub = require('github-api');
 const readline = require('readline');
 const getMaxUsedRepo = require('./getMaxUsedRepo');
 const processCommandLine = require('./processCommandLine');
@@ -10,10 +9,7 @@ if (!process.env.token) {
   return;
 }
 
-// basic auth
-let gh = new GitHub({
-  token: process.env.token
-});
+
 
 // allowing username via command line
 let username;
@@ -24,7 +20,7 @@ username = processCommandLine(process.argv);
 // is username exist means the username was introduced via command line
 if (username) {
   console.log(`User ${username} provided via command line`);
-  getMaxUsedRepo(gh,username).then((data) => {
+  getMaxUsedRepo(username).then((data) => {
     console.log(data);
   }).catch((error) => { console.log(error) });
 } else {
@@ -33,7 +29,7 @@ if (username) {
     output: process.stdout
   });
   rl.question('Insert an user to know the most used language: ', (answer) => {
-    getMaxUsedRepo(gh,answer).then((data) => {
+    getMaxUsedRepo(answer).then((data) => {
       console.log(data);
     }).catch((error) => { console.log(error) });
     rl.close();
