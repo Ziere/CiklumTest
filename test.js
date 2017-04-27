@@ -1,11 +1,12 @@
 const assert = require('assert');
 
-  describe('Correct settings', function() {
-    it('should exist the env token', function() {
-      assert.notEqual(process.env.token, undefined);
-    });
+describe('Correct settings', function() {
+  it('should exist the env token', function() {
+    assert.notEqual(process.env.token, undefined);
   });
+});
 
+describe('file: processCommandLine.js', function() {
   describe('Accepting user from command line', function() {
     const processCommandLine = require('./processCommandLine'); 
     it(`Array with ['Hello world', 'user=Ziere'] must return Ziere`, function() {
@@ -26,7 +27,9 @@ const assert = require('assert');
       assert.equal(testCommand, 'Facebook');
     });
   });
+});
 
+describe('file: getMaxUsedRepo.js', function() {
   describe('Get the max used language with the occurencies', function() {
     const getMaxUsedRepo = require('./getMaxUsedRepo');
     it('should return a not undefined for the user Ziere', function() {
@@ -42,3 +45,4 @@ const assert = require('assert');
       })      
     });
   });
+});
