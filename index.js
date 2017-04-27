@@ -9,8 +9,6 @@ if (!process.env.token) {
   return;
 }
 
-
-
 // allowing username via command line
 let username;
 
